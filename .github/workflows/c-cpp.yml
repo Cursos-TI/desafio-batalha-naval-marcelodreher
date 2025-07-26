@@ -1,0 +1,143 @@
+#include <stdio.h> // Necessário para printf
+#include <stdlib.h> // Necessário para abs() para o nível Mestre
+
+int main() {
+    printf("Desafio Batalha Naval.\n");
+    printf("Novo Commit\n");
+
+    // Nível Novato - Posicionamento dos Navios
+    printf("\n--- Nível Novato: Posicionamento dos Navios ---\n");
+    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
+    int tabuleiro[5][5] = {0}; // Inicializa todas as posições com 0 (vazio)
+
+    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
+
+    // Navio horizontal (tamanho 3, começando em [1][1])
+    tabuleiro[1][1] = 1;
+    tabuleiro[1][2] = 1;
+    tabuleiro[1][3] = 1;
+
+    // Navio vertical (tamanho 2, começando em [0][4])
+    tabuleiro[0][4] = 1;
+    tabuleiro[1][4] = 1;
+
+    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    printf("Tamanho do Tabuleiro: 5x5\n");
+    printf("Posições dos Navios:\n");
+
+    // Exibe o tabuleiro para verificação
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (tabuleiro[i][j] == 1) {
+                printf("Parte do navio em: (%d, %d)\n", i, j);
+            }
+        }
+    }
+
+    printf("\nVisualização do tabuleiro 5x5 (1 para navio, 0 para vazio):\n");
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+
+    ---
+
+    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
+    printf("\n--- Nível Aventureiro: Tabuleiro Expandido e Navios Diagonais ---\n");
+    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
+    int tabuleiro10x10[10][10] = {0}; // Inicializa todas as posições com 0
+
+    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
+
+    // Navio horizontal (tamanho 4, começando em [2][1])
+    tabuleiro10x10[2][1] = 3;
+    tabuleiro10x10[2][2] = 3;
+    tabuleiro10x10[2][3] = 3;
+    tabuleiro10x10[2][4] = 3;
+
+    // Navio vertical (tamanho 3, começando em [0][7])
+    tabuleiro10x10[0][7] = 3;
+    tabuleiro10x10[1][7] = 3;
+    tabuleiro10x10[2][7] = 3;
+
+    // Navio diagonal (superior-esquerdo para inferior-direito, tamanho 3, começando em [4][0])
+    tabuleiro10x10[4][0] = 3;
+    tabuleiro10x10[5][1] = 3;
+    tabuleiro10x10[6][2] = 3;
+
+    // Navio diagonal (superior-direito para inferior-esquerdo, tamanho 2, começando em [0][9])
+    tabuleiro10x10[0][9] = 3;
+    tabuleiro10x10[1][8] = 3;
+
+    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+    printf("Tamanho do Tabuleiro: 10x10\n");
+    printf("Visualização do tabuleiro 10x10 (3 para navio, 0 para vazio):\n");
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            printf("%d ", tabuleiro10x10[i][j]);
+        }
+        printf("\n");
+    }
+
+    ---
+
+    // Nível Mestre - Habilidades Especiais com Matrizes
+    printf("\n--- Nível Mestre: Habilidades Especiais ---\n");
+    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz e octaedro.
+    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
+    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas afetadas.
+
+    printf("Tamanho do Tabuleiro para Habilidades: 5x5 (0 para não afetado, 1 para afetado)\n");
+
+    // Exemplo para habilidade em cone (3x5)
+    // Isso cria o padrão específico 0 0 1 0 0, 0 1 1 1 0, 1 1 1 1 1
+    int coneHabilidadeEspecifica[3][5] = {
+        {0, 0, 1, 0, 0},
+        {0, 1, 1, 1, 0},
+        {1, 1, 1, 1, 1}
+    };
+
+    printf("\nHabilidade em Cone (3x5 do prompt):\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("%d ", coneHabilidadeEspecifica[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Exemplo para habilidade em octaedro (3x5)
+    // Isso cria o padrão específico 0 0 1 0 0, 0 1 1 1 0, 0 0 1 0 0
+    int octaedroHabilidadeEspecifica[3][5] = {
+        {0, 0, 1, 0, 0},
+        {0, 1, 1, 1, 0},
+        {0, 0, 1, 0, 0}
+    };
+
+    printf("\nHabilidade em Octaedro (3x5 do prompt):\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("%d ", octaedroHabilidadeEspecifica[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Exemplo para habilidade em cruz (3x5)
+    // Isso cria o padrão específico 0 0 1 0 0, 1 1 1 1 1, 0 0 1 0 0
+    int cruzHabilidadeEspecifica[3][5] = {
+        {0, 0, 1, 0, 0},
+        {1, 1, 1, 1, 1},
+        {0, 0, 1, 0, 0}
+    };
+
+    printf("\nHabilidade em Cruz (3x5 do prompt):\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("%d ", cruzHabilidadeEspecifica[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0; // Indica execução bem-sucedida
+}
